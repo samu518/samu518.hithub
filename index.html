@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Jugadores de Fútbol</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Celeste claro */
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #00796b; /* Celeste oscuro */
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        form input, form select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #083b33; /* Celeste oscuro */
+            border-radius: 5px;
+        }
+        form input:focus, form select:focus {
+            border-color: #004d40; /* Celeste más oscuro */
+            outline: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #00796b; /* Celeste oscuro */
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #004d40; /* Celeste más oscuro */
+            color: white;
+        }
+        .btn {
+            background-color: #00796b; /* Celeste oscuro */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #004d40; /* Celeste más oscuro */
+        }
+    }
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px
+        }
+        .image-container img {
+            max-width: 10%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="image-container">
+        <img src="c:\Users\Admin\Downloads\3117" alt="Logo del equipo">
+    </div>
+<div class="container">
+    <h1>JUGADORES CONVOCADOS</h1>
+
+
+    <form id="playerForm">
+        
+    </form>
+    <table id="playersTable">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Posición</th>
+                <th>Número</th>
+                <th>Equipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se agregarán los jugadores -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    document.getElementById('playerForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita el envío del formulario
+
+        // Obtener valores del formulario
+        const name = document.getElementById('samuel').value;
+        const age = document.getElementById('18').value;
+        const position = document.getElementById('6').value;
+        const number = document.getElementById('10').value;
+        const team = document.getElementById('89').value;
+
+        // Crear una nueva fila en la tabla
+        const table = document.getElementById('playersTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+        // Insertar celdas con los datos
+        newRow.insertCell(0).innerText = name;
+        newRow.insertCell(1).innerText = age;
+        newRow.insertCell(2).innerText = position;
+        newRow.insertCell(3).innerText = number;
+        newRow.insertCell(4).innerText = team;
+
+        // Limpiar el formulario
+        document.getElementById('playerForm').reset();
+    });
+
+    // Función para agregar jugadores de ejemplo
+    function addExamplePlayers() {
+        const examplePlayers = [
+            { name: 'cordoba carlos ', age: 18, position: 'Delantero', number: 8, team: 'Atlético' },
+            { name: 'Ana Gómez', age: 22, position: 'Centrocampista', number: 8, team: 'Real Madrid' },
+            { name: 'omar chauque', age: 25, position: 'Defensa', number: 10, team: 'Barcelona' },
+            { name: 'roberto carlos', age: 22, position: 'Centrocampista', number: 8, team: 'Real Madrid' },
+            { name: 'lionel messi', age: 30, position: 'Defensa', number: 5, team: 'Barcelona' } ,
+            { name: 'Luis Fernández', age: 30, position: 'Defensa', number: 5, team: 'Barcelona' } ,
+            { name: 'Luis Fernández', age: 30, position: 'Defensa', number: 5, team: 'Barcelona' } ,
+            { name: 'Luis Fernández', age: 30, position: 'Defensa', number: 5, team: 'Barcelona' } ,
+            { name: 'Luis Fernández', age: 30, position: 'Defensa', number: 5, team: 'Barcelona' } ,
+            { name: 'Luis Fernández', age: 30, position: 'Defensa', number: 5, team: 'Barcelona' } ,
+            { name: 'Luis Fernández', age: 30, position: 'Defensa', number: 5, team: 'Barcelona' } ,
+        ];
+
+        const table = document.getElementById('playersTable').getElementsByTagName('tbody')[0];
+
+        examplePlayers.forEach(player => {
+            const newRow = table.insertRow();
+            newRow.insertCell(0).innerText = player.name;
+            newRow.insertCell(1).innerText = player.age;
+            newRow.insertCell(2).innerText = player.position;
+            newRow.insertCell(3).innerText = player.number;
+            newRow.insertCell(4).innerText = player.team;
+        });
+    }
+
+    window.onload = addExamplePlayers;
+</script>
+
+</body>
+</html>
